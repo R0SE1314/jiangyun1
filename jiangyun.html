@@ -1,0 +1,1516 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#04141b">
+  <title>我们没有肆无忌惮的明天｜姜允</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: #04141b;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: #04141b;
+      color: #edf7f5;
+      font-family: "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .bar {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 99;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .bar i {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #7cd7d2, #ead8a7);
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+
+    .nav {
+      position: fixed;
+      left: 24px;
+      right: 24px;
+      top: 18px;
+      z-index: 90;
+      display: flex;
+      min-height: 56px;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(222, 244, 242, 0.16);
+      background: linear-gradient(
+        180deg,
+        rgba(4, 20, 27, 0.9),
+        rgba(4, 20, 27, 0.12)
+      );
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: flex;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      align-items: center;
+      gap: 11px;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+    }
+
+    .brand b {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      border: 1px solid rgba(222, 244, 242, 0.34);
+      border-radius: 50%;
+      place-items: center;
+      color: #ead8a7;
+      font: 10px Arial;
+    }
+
+    .nav ul {
+      display: flex;
+      gap: 22px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav li button {
+      padding: 7px 0;
+      border: 0;
+      background: none;
+      color: rgba(237, 247, 245, 0.55);
+      font: 10px "PingFang SC", sans-serif;
+      letter-spacing: 0.13em;
+      cursor: pointer;
+    }
+
+    .nav li button:hover {
+      color: white;
+    }
+
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: 100svh;
+      padding: 142px 6vw 54px;
+      overflow: hidden;
+      align-items: flex-end;
+      isolation: isolate;
+    }
+
+    .hero > .photo {
+      position: absolute;
+      inset: 0;
+      z-index: -4;
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 28%;
+      filter: saturate(0.72) brightness(0.56) contrast(1.08);
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      content: "";
+      background:
+        linear-gradient(
+          90deg,
+          rgba(4, 20, 27, 0.98),
+          rgba(4, 20, 27, 0.63) 51vw,
+          rgba(4, 20, 27, 0.13)
+        ),
+        linear-gradient(
+          0deg,
+          #04141b,
+          transparent 58vh
+        ),
+        linear-gradient(
+          180deg,
+          rgba(4, 20, 27, 0.68),
+          transparent 28vh
+        );
+    }
+
+    .ink {
+      position: absolute;
+      top: 9vh;
+      right: 0;
+      z-index: -1;
+      width: min(760px, 55vw);
+      opacity: 0.44;
+      mix-blend-mode: screen;
+      filter: invert(1) brightness(1.42) contrast(1.08);
+      transform: rotate(-1deg);
+    }
+
+    .ink img {
+      width: 100%;
+    }
+
+    .ink::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: linear-gradient(90deg, transparent, #04141b);
+    }
+
+    .wrap {
+      position: relative;
+      width: min(1200px, calc(100vw - 40px));
+      margin: auto;
+    }
+
+    .hero .wrap {
+      margin: auto;
+    }
+
+    .kicker {
+      margin: 0 0 22px;
+      color: rgba(232, 248, 246, 0.58);
+      font: 9px/1.9 Arial, "PingFang SC", sans-serif;
+      letter-spacing: 0.15em;
+    }
+
+    .hero h1 {
+      max-width: 1120px;
+      margin: 0;
+      font-size: clamp(42px, 6.3vw, 92px);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .hero h1 span {
+      display: block;
+    }
+
+    .hero h1 em {
+      color: #ead8a7;
+      font-style: normal;
+    }
+
+    .refuse {
+      max-width: 940px;
+      margin: 24px 0 0;
+      color: rgba(236, 249, 247, 0.72);
+      font-size: clamp(13px, 1.4vw, 18px);
+      line-height: 1.9;
+      letter-spacing: 0.04em;
+    }
+
+    .refuse i {
+      color: rgba(236, 249, 247, 0.38);
+      font-style: normal;
+    }
+
+    .tags {
+      display: flex;
+      margin-top: 25px;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: rgba(232, 248, 246, 0.62);
+      font: 9px Arial, "PingFang SC", sans-serif;
+      letter-spacing: 0.1em;
+    }
+
+    .tags span {
+      padding: 6px 9px;
+      border: 1px solid rgba(222, 244, 242, 0.16);
+      background: rgba(5, 29, 36, 0.42);
+    }
+
+    .down {
+      display: inline-flex;
+      margin-top: 28px;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: rgba(244, 252, 250, 0.82);
+      align-items: center;
+      gap: 13px;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+    }
+
+    .down i {
+      display: grid;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(223, 247, 245, 0.3);
+      border-radius: 50%;
+      place-items: center;
+      font-style: normal;
+    }
+
+    .section,
+    .quote {
+      position: relative;
+      padding: clamp(92px, 11vw, 156px) 6vw;
+      overflow: hidden;
+    }
+
+    .label {
+      display: flex;
+      margin-bottom: 44px;
+      align-items: center;
+      gap: 13px;
+      color: rgba(223, 244, 242, 0.44);
+      font: 600 8px "PingFang SC", sans-serif;
+      letter-spacing: 0.18em;
+    }
+
+    .label b {
+      color: #ead8a7;
+      font-size: 9px;
+    }
+
+    .label::after {
+      width: 68px;
+      height: 1px;
+      background: rgba(222, 244, 242, 0.18);
+      content: "";
+    }
+
+    .display {
+      margin: 0;
+      font-size: clamp(42px, 5.8vw, 88px);
+      font-weight: 400;
+      line-height: 1.25;
+    }
+
+    .display em,
+    h2 em {
+      color: #ead8a7;
+      font-style: normal;
+    }
+
+    .preface {
+      background: #061b22;
+    }
+
+    .preface-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      align-items: start;
+      gap: 7vw;
+    }
+
+    .name {
+      margin: 0;
+      color: #ead8a7;
+      font-size: clamp(70px, 11vw, 150px);
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .intro {
+      margin: 22px 0 0;
+      color: rgba(235, 248, 246, 0.48);
+      font-size: 12px;
+      line-height: 1.9;
+      letter-spacing: 0.08em;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 34px 0 0;
+      border-top: 1px solid rgba(222, 244, 242, 0.16);
+    }
+
+    .facts div {
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(222, 244, 242, 0.16);
+    }
+
+    .facts dt {
+      color: rgba(223, 244, 242, 0.32);
+      font: 600 7px Arial;
+      letter-spacing: 0.16em;
+    }
+
+    .facts dd {
+      margin: 6px 0 0;
+      color: rgba(240, 250, 248, 0.82);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+    }
+
+    .chapter {
+      margin: 66px 0 0;
+      padding-top: 26px;
+      border-top: 1px solid rgba(222, 244, 242, 0.16);
+      color: rgba(236, 249, 247, 0.68);
+      font-size: clamp(18px, 2.2vw, 28px);
+      line-height: 1.8;
+    }
+
+    .chapter small {
+      display: block;
+      margin-bottom: 8px;
+      color: #7cd7d2;
+      font: 8px Arial;
+      letter-spacing: 0.18em;
+    }
+
+    .quote {
+      display: flex;
+      min-height: 78svh;
+      align-items: center;
+      isolation: isolate;
+    }
+
+    .quote > .photo {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.68) brightness(0.51) contrast(1.08);
+    }
+
+    .quote::before {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      content: "";
+      background:
+        linear-gradient(
+          90deg,
+          rgba(4, 20, 27, 0.97),
+          rgba(4, 20, 27, 0.53) 58vw,
+          rgba(4, 20, 27, 0.12)
+        ),
+        linear-gradient(
+          0deg,
+          #04141b,
+          transparent 42vh
+        );
+    }
+
+    .quote blockquote {
+      max-width: 940px;
+      margin: 0;
+      font-size: clamp(30px, 4.4vw, 67px);
+      line-height: 1.55;
+    }
+
+    .quote small {
+      display: block;
+      margin-top: 22px;
+      color: rgba(229, 247, 245, 0.46);
+      font: 9px "PingFang SC", sans-serif;
+      letter-spacing: 0.16em;
+    }
+
+    .style {
+      background: linear-gradient(
+        180deg,
+        #04141b,
+        #06242a 50vh,
+        #04141b
+      );
+    }
+
+    .styles {
+      display: grid;
+      margin-top: 52px;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid rgba(222, 244, 242, 0.16);
+      gap: 0 5vw;
+    }
+
+    .row {
+      display: grid;
+      padding: 18px 2px;
+      border-bottom: 1px solid rgba(222, 244, 242, 0.16);
+      grid-template-columns: 30px 0.72fr 1.2fr;
+      align-items: baseline;
+      gap: 13px;
+    }
+
+    .row b {
+      color: #ead8a7;
+      font: 8px Arial;
+    }
+
+    .row h3 {
+      margin: 0;
+      font-size: clamp(18px, 1.9vw, 26px);
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+
+    .row p {
+      margin: 0;
+      color: rgba(225, 245, 243, 0.5);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .gallery {
+      display: grid;
+      margin-top: 68px;
+      grid-template-columns: 1.12fr 0.88fr;
+      align-items: end;
+      gap: 4vw;
+    }
+
+    .shot {
+      position: relative;
+      margin: 0;
+      overflow: hidden;
+      background: #031016;
+    }
+
+    .gate {
+      height: 66svh;
+    }
+
+    .gate img {
+      width: min(680px, 54vw);
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.72) brightness(0.66) contrast(1.07);
+    }
+
+    .gate::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: linear-gradient(
+        0deg,
+        rgba(4, 20, 27, 0.34),
+        transparent 40vh
+      );
+    }
+
+    .film {
+      transform: rotate(-1deg);
+    }
+
+    .film img {
+      width: min(450px, 37vw);
+      filter: saturate(0.7) brightness(0.77) contrast(1.07);
+    }
+
+    .rules {
+      background: #04141b;
+    }
+
+    .rules::before {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: radial-gradient(
+        circle at 84vw 18vh,
+        rgba(83, 190, 187, 0.14),
+        transparent 30vw
+      );
+    }
+
+    .safety {
+      display: flex;
+      margin: 42px 0 52px;
+      padding: 26px 30px;
+      border: 1px solid rgba(234, 216, 167, 0.36);
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      background: linear-gradient(
+        112deg,
+        rgba(234, 216, 167, 0.07),
+        rgba(112, 203, 201, 0.025)
+      );
+    }
+
+    .safety small {
+      display: block;
+      margin-bottom: 10px;
+      color: #ead8a7;
+      font: 8px "PingFang SC", sans-serif;
+      letter-spacing: 0.18em;
+    }
+
+    .safety strong {
+      font-size: clamp(26px, 3.5vw, 50px);
+      font-weight: 400;
+    }
+
+    .copy {
+      flex: none;
+      padding: 10px 14px;
+      border: 1px solid rgba(228, 248, 246, 0.24);
+      color: rgba(237, 249, 247, 0.78);
+      background: rgba(5, 25, 32, 0.55);
+      font-size: 10px;
+      letter-spacing: 0.09em;
+      cursor: pointer;
+    }
+
+    .rule-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 5vw;
+    }
+
+    .rule {
+      padding: 17px 2px;
+      border-bottom: 1px solid rgba(222, 244, 242, 0.16);
+    }
+
+    .rule-top {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .rule b {
+      color: #ead8a7;
+      font: 8px Arial;
+    }
+
+    .rule h3 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+    }
+
+    .rule p {
+      margin: 9px 0 0 38px;
+      color: rgba(225, 244, 242, 0.52);
+      font-size: 11px;
+      line-height: 1.9;
+    }
+
+    .memorial {
+      display: flex;
+      min-height: 100svh;
+      padding: 0;
+      align-items: flex-end;
+      isolation: isolate;
+    }
+
+    .memorial > .photo {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.8) brightness(0.64) contrast(1.07);
+    }
+
+    .memorial::before {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      content: "";
+      background:
+        linear-gradient(
+          0deg,
+          rgba(4, 20, 27, 0.98),
+          rgba(4, 20, 27, 0.3) 52vh,
+          rgba(4, 20, 27, 0.06)
+        ),
+        linear-gradient(
+          90deg,
+          rgba(4, 20, 27, 0.74),
+          transparent 54vw
+        );
+    }
+
+    .memorial .wrap {
+      padding-bottom: 8vh;
+    }
+
+    .memorial h2 {
+      max-width: 1080px;
+      margin: 0;
+      font-size: clamp(40px, 6.1vw, 94px);
+      font-weight: 400;
+      line-height: 1.29;
+    }
+
+    .memorial-note {
+      margin: 30px 0 0;
+      color: rgba(236, 249, 247, 0.68);
+      font-size: clamp(18px, 2.4vw, 32px);
+      line-height: 1.8;
+    }
+
+    .partner {
+      background: #071e24;
+    }
+
+    .partner-grid {
+      display: grid;
+      min-height: 46svh;
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: center;
+      gap: 7vw;
+    }
+
+    .partner .name {
+      font-size: clamp(76px, 10vw, 148px);
+    }
+
+    .partner-style {
+      margin: 0;
+      color: rgba(238, 249, 247, 0.78);
+      font-size: 14px;
+      line-height: 2;
+      letter-spacing: 0.04em;
+    }
+
+    .partner-style i {
+      padding: 0 7px;
+      color: #bedfb8;
+      font-style: normal;
+    }
+
+    .links {
+      background: #04141b;
+    }
+
+    .link-list {
+      margin-top: 54px;
+      border-top: 1px solid rgba(222, 244, 242, 0.16);
+    }
+
+    .link-row {
+      display: grid;
+      padding: 22px 2px;
+      border-bottom: 1px solid rgba(222, 244, 242, 0.16);
+      grid-template-columns: 48px 1fr auto 20px;
+      align-items: center;
+      gap: 18px;
+      transition:
+        padding-left 0.25s ease,
+        color 0.25s ease;
+    }
+
+    .link-row:hover {
+      padding-left: 10px;
+      color: #ead8a7;
+    }
+
+    .link-row span,
+    .link-row em {
+      font: 8px Arial;
+    }
+
+    .link-row strong {
+      font-size: clamp(21px, 3vw, 38px);
+      font-weight: 400;
+    }
+
+    .link-row em {
+      color: rgba(226, 245, 243, 0.32);
+      font-style: normal;
+      letter-spacing: 0.12em;
+    }
+
+    .footer {
+      padding: 92px 6vw 24px;
+      background: #020f14;
+    }
+
+    .footer small {
+      color: rgba(224, 246, 244, 0.3);
+      font: 8px Arial;
+      letter-spacing: 0.18em;
+    }
+
+    .footer h2 {
+      margin: 24px 0 18px;
+      color: #ead8a7;
+      font-size: clamp(78px, 15vw, 184px);
+      font-weight: 400;
+      line-height: 0.92;
+    }
+
+    .footer .last {
+      margin: 0 0 72px;
+      color: rgba(236, 249, 247, 0.55);
+      font-size: clamp(17px, 2vw, 26px);
+      letter-spacing: 0.06em;
+    }
+
+    .bottom {
+      display: flex;
+      padding-top: 18px;
+      border-top: 1px solid rgba(223, 246, 244, 0.1);
+      align-items: center;
+      justify-content: space-between;
+      color: rgba(224, 245, 243, 0.26);
+      font: 8px Arial;
+      letter-spacing: 0.1em;
+    }
+
+    .up {
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .r {
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+    }
+
+    .r.on {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        left: 14px;
+        right: 14px;
+        top: 10px;
+      }
+
+      .nav ul {
+        display: none;
+      }
+
+      .hero {
+        min-height: 100svh;
+        padding: 122px 20px 42px;
+      }
+
+      .ink {
+        top: 14vh;
+        right: -12vw;
+        width: 92vw;
+        opacity: 0.32;
+      }
+
+      .hero h1 {
+        font-size: clamp(30px, 7.5vw, 56px);
+        line-height: 1.28;
+      }
+
+      .section,
+      .quote {
+        padding: 92px 20px;
+      }
+
+      .label {
+        margin-bottom: 38px;
+      }
+
+      .preface-grid,
+      .gallery,
+      .partner-grid {
+        display: block;
+      }
+
+      .facts {
+        margin-top: 36px;
+      }
+
+      .quote {
+        min-height: 68svh;
+      }
+
+      .quote blockquote {
+        font-size: clamp(28px, 8vw, 42px);
+      }
+
+      .styles {
+        display: block;
+        margin-top: 42px;
+      }
+
+      .row {
+        grid-template-columns: 28px 1fr;
+        gap: 7px 11px;
+      }
+
+      .row p {
+        grid-column: 2;
+      }
+
+      .gallery {
+        margin-top: 48px;
+      }
+
+      .gate {
+        height: 64svh;
+      }
+
+      .gate img,
+      .film img {
+        width: calc(100vw - 40px);
+      }
+
+      .film {
+        margin-top: 38px;
+        transform: none;
+      }
+
+      .safety {
+        display: block;
+        padding: 22px 19px;
+      }
+
+      .copy {
+        margin-top: 18px;
+      }
+
+      .rule-grid {
+        display: block;
+      }
+
+      .memorial {
+        min-height: 92svh;
+      }
+
+      .memorial h2 {
+        font-size: clamp(37px, 11vw, 60px);
+      }
+
+      .partner .name {
+        font-size: clamp(76px, 23vw, 118px);
+      }
+
+      .partner-style {
+        margin-top: 30px;
+      }
+
+      .link-row {
+        grid-template-columns: 26px 1fr 18px;
+        gap: 10px;
+      }
+
+      .link-row em {
+        display: none;
+      }
+
+      .footer {
+        padding: 82px 20px 22px;
+      }
+
+      .bottom {
+        display: block;
+        line-height: 2;
+      }
+
+      .up {
+        display: block;
+        margin-top: 7px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition-duration: 0.01ms !important;
+      }
+
+      .r {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bar">
+    <i></i>
+  </div>
+
+  <header class="nav">
+    <button class="brand" data-go="top">
+      <b>J</b>
+      <span>姜允</span>
+    </button>
+
+    <ul>
+      <li><button data-go="preface">序言</button></li>
+      <li><button data-go="style">风格</button></li>
+      <li><button data-go="rules">须知</button></li>
+      <li><button data-go="memorial">纪念</button></li>
+      <li><button data-go="partner">搭档</button></li>
+      <li><button data-go="links">档案</button></li>
+    </ul>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+   
+
+      <div class="ink">
+        <img src="1.png" alt="">
+      </div>
+
+      <div class="wrap">
+        <p class="kicker r">姜允 · PRIVATE DREAM 019</p>
+
+        <h1 class="r">
+          <span>我们没有肆无忌惮的明天</span>
+          <span>但我始终记得<em>见你的第一面</em></span>
+        </h1>
+
+        <p class="refuse r">
+          永拒那些因无聊消遣点我的人
+          <i>｜</i>
+          曾用名：云梦.云芝
+        </p>
+
+        <div class="tags r">
+          <span>双 / 19</span>
+          <span>ENFP</span>
+          <span>水瓶</span>
+          <span>常驻 · 上春山</span>
+        </div>
+
+        <button class="down r" data-go="preface">
+          <span>走进这里</span>
+          <i>↓</i>
+        </button>
+      </div>
+    </section>
+
+    <section class="section preface" id="preface">
+      <div class="wrap">
+        <div class="label r">
+          <b>00</b>
+          <span>序言</span>
+        </div>
+
+        <div class="preface-grid">
+          <div>
+            <h2 class="name r">姜允</h2>
+
+            <p class="intro r">
+              你怕被“被看见”吗<br>
+              “我们是能谈及眼泪的关系吗”
+            </p>
+          </div>
+
+          <dl class="facts r">
+            <div>
+              <dt>IDENTITY</dt>
+              <dd>双 / 19 / ENFP / 水瓶</dd>
+            </div>
+
+            <div>
+              <dt>ARCHETYPE</dt>
+              <dd>校服桂冠书虫</dd>
+            </div>
+
+            <div>
+              <dt>RESIDENCE</dt>
+              <dd>常驻 · 上春山</dd>
+            </div>
+
+            <div>
+              <dt>TEMPERAMENT</dt>
+              <dd>高敏感 / 付出型 / 温和</dd>
+            </div>
+
+            <div>
+              <dt>MENTOR</dt>
+              <dd>不周山</dd>
+            </div>
+
+            <div>
+              <dt>PARTNER</dt>
+              <dd>零碎</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="chapter r">
+          <small>CHAPTER 01 · 解构</small>
+          需要我的人，请走进我的世界。<br>
+          恩师：不周山
+        </div>
+           <img class="photo" src="2.jpeg" alt="">
+      </div>
+    </section>
+
+    <section class="quote">
+      <img class="photo" src="./03-qinglin.png" alt="">
+
+      <div class="wrap r">
+        <blockquote>
+          “于千万人之中遇见你所要遇见的人，于千万年之中，
+          时间的无涯的荒野里，没有早一步，也没有晚一步，
+          刚巧赶上了。”
+        </blockquote>
+
+        <small>张爱玲《爱》</small>
+      </div>
+    </section>
+
+    <section class="section style" id="style">
+      <div class="wrap">
+        <div class="label r">
+          <b>02</b>
+          <span>风格</span>
+        </div>
+
+        <h2 class="display r">
+          靠近，不等于<br>
+          <em>失去边界。</em>
+        </h2>
+
+        <div class="styles">
+          <article class="row r">
+            <b>01</b>
+            <h3>中低恋</h3>
+            <p>保持距离，也保留温度。</p>
+          </article>
+
+          <article class="row r">
+            <b>02</b>
+            <h3>引导</h3>
+            <p>在失序时，替你拎出一个可以继续的线头。</p>
+          </article>
+
+          <article class="row r">
+            <b>03</b>
+            <h3>一针见血</h3>
+            <p>不绕远路，但会为真话留一层柔软。</p>
+          </article>
+
+          <article class="row r">
+            <b>04</b>
+            <h3>温柔刀</h3>
+            <p>把被回避的部分，轻轻放到光里。</p>
+          </article>
+
+          <article class="row r">
+            <b>05</b>
+            <h3>高恋共情</h3>
+            <p>愿意靠近，也记得彼此仍是完整的人。</p>
+          </article>
+
+          <article class="row r">
+            <b>06</b>
+            <h3>救赎 / 伪救赎 / 白骑士</h3>
+            <p>可以一起做梦，但不会把梦境冒充成现实承诺。</p>
+          </article>
+        </div>
+
+     
+        </div>
+      </div>
+    </section>
+
+    <section class="section rules" id="rules">
+      <div class="wrap">
+        <div class="label r">
+          <b>03</b>
+          <span>重构</span>
+        </div>
+
+        <h2 class="display r">
+          入梦前，<br>
+          <em>请读完这一页。</em>
+        </h2>
+
+        <div class="safety r">
+          <div>
+            <small>安全词</small>
+            <strong>“姜允，我讨厌你”</strong>
+          </div>
+
+          <button class="copy" data-copy="姜允，我讨厌你">
+            复制
+          </button>
+        </div>
+
+        <div class="rule-grid">
+          <article class="rule r">
+            <div class="rule-top">
+              <b>01</b>
+              <h3>白话与文艺</h3>
+            </div>
+            <p>喜白话，会有文艺掺杂，开局恋感随机。</p>
+          </article>
+
+          <article class="rule r">
+            <div class="rule-top">
+              <b>02</b>
+              <h3>回合制</h3>
+            </div>
+            <p>默认回合制，不要打断我说话！</p>
+          </article>
+
+          <article class="rule r">
+            <div class="rule-top">
+              <b>03</b>
+              <h3>回复方式</h3>
+            </div>
+            <p>
+              不要用很猎奇的回答方式回复我，
+              单内你的态度决定了我的态度。
+            </p>
+          </article>
+
+          <article class="rule r">
+            <div class="rule-top">
+              <b>04</b>
+              <h3>截图与记录</h3>
+            </div>
+            <p>
+              单内可以截图，可以记录，和我确认就行，
+              但请不要传播。
+            </p>
+          </article>
+
+          <article class="rule r">
+            <div class="rule-top">
+              <b>05</b>
+              <h3>客诉与反馈</h3>
+            </div>
+            <p>
+              若要客诉、退单、吐槽，可以直接对我说。
+              我需要建议，体验好也麻烦夸夸我，我想要板评。
+            </p>
+          </article>
+
+          <article class="rule r">
+            <div class="rule-top">
+              <b>06</b>
+              <h3>三人场合</h3>
+            </div>
+            <p>单内有可能涉三，比较需要回应。</p>
+          </article>
+
+          <article class="rule r">
+            <div class="rule-top">
+              <b>07</b>
+              <h3>迟到与存单</h3>
+            </div>
+            <p>迟到五分钟自动存单。</p>
+          </article>
+
+          <article class="rule r">
+            <div class="rule-top">
+              <b>08</b>
+              <h3>指定委托</h3>
+            </div>
+            <p>指定不接受客诉，只接受退单 / 换人。</p>
+          </article>
+
+          <article class="rule r">
+            <div class="rule-top">
+              <b>09</b>
+              <h3>虐哭需求</h3>
+            </div>
+            <p>
+              想寻求虐哭等一系列，不要找我。
+              我的目的不是让你哭，我也没有能力让你哭。
+            </p>
+          </article>
+
+          <article class="rule r">
+            <div class="rule-top">
+              <b>10</b>
+              <h3>雷点</h3>
+            </div>
+            <p>
+              如有雷点请提前告知，踩暗雷概不负责，
+              婉拒因踩暗雷的客诉和退单。
+            </p>
+          </article>
+
+          <article class="rule r">
+            <div class="rule-top">
+              <b>11</b>
+              <h3>普通人</h3>
+            </div>
+            <p>
+              我只是一个平凡的普通人，
+              请不要对我抱有太大希望。
+            </p>
+          </article>
+
+          <article class="rule r">
+            <div class="rule-top">
+              <b>12</b>
+              <h3>婉拒</h3>
+            </div>
+            <p>
+              全程欺骗、黑脸、人身攻击、过于幸福的人、
+              单口、高文艺 OS。
+            </p>
+          </article>
+
+          <article class="rule r">
+            <div class="rule-top">
+              <b>13</b>
+              <h3>切片分享</h3>
+            </div>
+            <p>
+              如果遇到本人很喜欢的切片，会打码发社交平台；
+              介意请提前说明。
+            </p>
+          </article>
+
+          <article class="rule r">
+            <div class="rule-top">
+              <b>14</b>
+              <h3>退单</h3>
+            </div>
+            <p>
+              请熟练运用退单键。
+              不喜欢可以退单，不用勉强自己。
+            </p>
+          </article>
+
+          <article class="rule r">
+            <div class="rule-top">
+              <b>15</b>
+              <h3>安全词</h3>
+            </div>
+            <p>
+              单内如有不适，请说安全词“姜允，我讨厌你”，
+              我会调整。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section memorial" id="memorial">
+      
+
+      <div class="wrap">
+        <div class="label r">
+          <b>04</b>
+          <span>纪念</span>
+        </div>
+
+        <h2 class="r">
+          不必苛责自己，<br>
+          你的痛苦存在即 <em>合理。</em>
+        </h2>
+
+        <p class="memorial-note r">
+          我不希望我们之间只有痛苦。
+        </p>
+      </div>
+    </section>
+
+    <section class="section partner" id="partner">
+      <div class="wrap">
+        <div class="label r">
+          <b>05</b>
+          <span>搭档</span>
+        </div>
+
+        <div class="partner-grid">
+          <h2 class="name r">零碎</h2>
+
+          <p class="partner-style r">
+            低无剖析白话
+            <i>║</i>
+            高恋共情 / 水仙虐
+            <i>║</i>
+            高擦虐
+          </p>
+
+          <img class="photo" src="3.jpeg" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="section links" id="links">
+      <div class="wrap">
+        <div class="label r">
+          <b>06</b>
+          <span>档案</span>
+        </div>
+
+        <h2 class="display r">延伸档案</h2>
+
+        <div class="link-list">
+          <a
+            class="link-row r"
+            href="https://www.kdocs.cn/l/cpvow9jSqRHE"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>01</span>
+            <strong>话术随笔</strong>
+            <em>WRITING</em>
+            <b>↗</b>
+          </a>
+
+          <a
+            class="link-row r"
+            href="https://www.kdocs.cn/l/cbVLKyXSEOzP"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>02</span>
+            <strong>板评</strong>
+            <em>REVIEWS</em>
+            <b>↗</b>
+          </a>
+
+          <a
+            class="link-row r"
+            href="https://www.kdocs.cn/l/cdc57MxXjBwu"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>03</span>
+            <strong>小卡</strong>
+            <em>CARD</em>
+            <b>↗</b>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>姜允 · PRIVATE DREAM No.019</small>
+
+    <h2>祝好。</h2>
+
+    <p class="last">我依旧会记住你</p>
+
+    <div class="bottom">
+      <span>姜允 · 019</span>
+      <button class="up" data-go="top">回到月光下 ↑</button>
+    </div>
+  </footer>
+
+  <script>
+    const q = (selector, root = document) => {
+      return root.querySelector(selector);
+    };
+
+    const qa = (selector, root = document) => {
+      return [...root.querySelectorAll(selector)];
+    };
+
+    const bar = q(".bar i");
+
+    const updateBar = () => {
+      const max =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      bar.style.transform = `scaleX(${
+        max > 0 ? window.scrollY / max : 0
+      })`;
+    };
+
+    window.addEventListener("scroll", updateBar, {
+      passive: true
+    });
+
+    updateBar();
+
+    qa("[data-go]").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const id = button.dataset.go;
+
+        if (id === "top") {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+          return;
+        }
+
+        document.getElementById(id)?.scrollIntoView({
+          behavior: "smooth"
+        });
+      });
+    });
+
+    q(".copy").addEventListener("click", async (event) => {
+      const button = event.currentTarget;
+
+      try {
+        await navigator.clipboard.writeText(button.dataset.copy);
+        button.textContent = "已复制";
+      } catch {
+        button.textContent = "请手动复制";
+      }
+
+      setTimeout(() => {
+        button.textContent = "复制";
+      }, 1600);
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          entry.target.classList.add("on");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.06
+      }
+    );
+
+    qa(".r").forEach((element) => {
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>
